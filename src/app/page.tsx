@@ -11,7 +11,7 @@ import ScoringSettings from '@/components/ScoringSettings';
 import { useScoringStore } from '@/lib/store';
 import Link from 'next/link';
 
-export default function DashboardPage() {
+function DashboardContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [jobStatus, setJobStatus] = useState<string | null>(null);
   const [results, setResults] = useState<any>(null);
@@ -243,6 +243,14 @@ export default function DashboardPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-500">Loading Dashboard...</div>}>
+      <DashboardContent />
+    </Suspense>
   );
 }
 
