@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { SearchPanel, SearchParams } from '@/components/dashboard/search-panel';
 import { AccountsTable } from '@/components/dashboard/accounts-table';
 import { PostsList } from '@/components/dashboard/posts-list';
@@ -161,15 +161,17 @@ export default function DashboardPage() {
         </div>
       </header>
 
-      <SearchPanel 
-        onSearch={handleSearch} 
-        onLoad={(params) => {
-          setActiveHashtag(params.hashtag);
-          setActivePlatform(params.platform);
-          fetchReports(params.hashtag, params.platform);
-        }}
-        isLoading={isLoading} 
-      />
+      <Suspense fallback={<div className="h-16 flex items-center justify-center bg-white rounded-xl border border-slate-200 shadow-sm animate-pulse text-slate-400">Loading search options...</div>}>
+        <SearchPanel 
+          onSearch={handleSearch} 
+          onLoad={(params) => {
+            setActiveHashtag(params.hashtag);
+            setActivePlatform(params.platform);
+            fetchReports(params.hashtag, params.platform);
+          }}
+          isLoading={isLoading} 
+        />
+      </Suspense>
       <ScoringSettings />
 
       {/* Info Notice */}
