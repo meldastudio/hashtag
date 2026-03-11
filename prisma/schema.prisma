@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model SearchJob {
+  id        String   @id @default(uuid())
+  hashtag   String
+  platform  String
+  startDate DateTime
+  endDate   DateTime
+  status    String
+  createdAt DateTime @default(now())
+  posts     Post[]
+}
+
+model Account {
+  id         String  @id @default(uuid())
+  platform   String
+  username   String
+  profileUrl String?
+  posts      Post[]
+
+  @@unique([platform, username])
+}
+
+model Post {
+  id          String    @id @default(uuid())
+  searchJobId String
+  accountId   String
+  platform    String
+  postUrl     String    @unique
+  content     String?
+  postedAt    DateTime
+  views       Int       @default(0)
+  likes       Int       @default(0)
+  comments    Int       @default(0)
+  shares      Int       @default(0)
+  saves       Int       @default(0)
+  scrapedAt   DateTime  @default(now())
+  account     Account   @relation(fields: [accountId], references: [id])
+  searchJob   SearchJob @relation(fields: [searchJobId], references: [id])
+}
