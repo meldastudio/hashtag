@@ -3596,18 +3596,13 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
-      "bytes": 5956,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
       "bytes": 6074,
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
-      "bytes": 6826,
+    ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
+      "bytes": 5956,
       "imports": [],
       "format": "cjs"
     },
@@ -3616,12 +3611,17 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js": {
-      "bytes": 314,
+    ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
+      "bytes": 6826,
       "imports": [],
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js": {
+      "bytes": 314,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js": {
       "bytes": 314,
       "imports": [],
       "format": "cjs"
@@ -3665,19 +3665,14 @@
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/history/page_client-reference-manifest.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js",
+          "path": ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js"
+          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js",
@@ -3685,14 +3680,19 @@
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js",
+          "path": ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js"
+          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/api/jobs/[id]/route_client-reference-manifest.js",
@@ -4133,7 +4133,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__11fa4345._.js": {
-      "bytes": 1005,
+      "bytes": 1125,
       "imports": [],
       "format": "cjs"
     },
@@ -4836,7 +4836,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4428f399._.js": {
-      "bytes": 86659,
+      "bytes": 86688,
       "imports": [
         {
           "path": "os",
@@ -8124,22 +8124,22 @@
         ".open-next/server-functions/default/.next/server/app/history/page_client-reference-manifest.js": {
           "bytesInOutput": 6482
         },
-        ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
-          "bytesInOutput": 5722
-        },
         ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
           "bytesInOutput": 5830
         },
-        ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
-          "bytesInOutput": 6529
+        ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
+          "bytesInOutput": 5722
         },
         ".open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js": {
           "bytesInOutput": 461
         },
-        ".open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js": {
-          "bytesInOutput": 464
+        ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
+          "bytesInOutput": 6529
         },
         ".open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js": {
+          "bytesInOutput": 464
+        },
+        ".open-next/server-functions/default/.next/server/app/api/reports/route_client-reference-manifest.js": {
           "bytesInOutput": 464
         },
         ".open-next/server-functions/default/.next/server/app/api/jobs/[id]/route_client-reference-manifest.js": {
@@ -8212,7 +8212,7 @@
           "bytesInOutput": 158844
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__11fa4345._.js": {
-          "bytesInOutput": 1123
+          "bytesInOutput": 1246
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js": {
           "bytesInOutput": 981
@@ -8350,7 +8350,7 @@
           "bytesInOutput": 267
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4428f399._.js": {
-          "bytesInOutput": 89363
+          "bytesInOutput": 89392
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d7eed125._.js": {
           "bytesInOutput": 14139
@@ -8554,7 +8554,7 @@
           "bytesInOutput": 58390
         }
       },
-      "bytes": 3323774
+      "bytes": 3323926
     }
   }
 }

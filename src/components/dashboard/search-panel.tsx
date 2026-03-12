@@ -78,7 +78,7 @@ export function SearchPanel({ onSearch, onLoad, isLoading }: SearchPanelProps) {
         <select 
           value={platform} 
           onChange={(e) => setPlatform(e.target.value as any)}
-          className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="flex h-9 w-full rounded-md border border-input bg-white text-slate-900 px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
           <option value="ALL">All Platforms</option>
           <option value="FACEBOOK">Facebook</option>
@@ -92,7 +92,7 @@ export function SearchPanel({ onSearch, onLoad, isLoading }: SearchPanelProps) {
           type="date"
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
-          className="flex h-9 w-[180px] rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="flex h-9 w-[180px] rounded-md border border-input bg-white text-slate-900 px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         />
       </div>
 
@@ -102,7 +102,7 @@ export function SearchPanel({ onSearch, onLoad, isLoading }: SearchPanelProps) {
           type="date"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
-          className="flex h-9 w-[180px] rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="flex h-9 w-[180px] rounded-md border border-input bg-white text-slate-900 px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         />
       </div>
 
