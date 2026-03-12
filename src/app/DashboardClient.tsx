@@ -44,26 +44,52 @@ export default function DashboardClient() {
     setActivePlatform(params.platform);
     
     try {
+      // Set a 30s timeout for the initial request
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
       const res = await fetch('/api/scrape', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
+        signal: controller.signal
       });
-      if (!res.ok) throw new Error('Search failed');
+      
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || `Search failed with status ${res.status}`);
+      }
+      
       const data = await res.json();
       const jobId = data.jobId;
 
       if (jobId) {
-        pollJobStatus(jobId, params.hashtag, params.platform);
+        // If we already finished (likely on Vercel/Production), status might be COMPLETED
+        if (data.status === 'COMPLETED') {
+           setJobStatus('Fetching results...');
+           await fetchReports(params.hashtag, params.platform);
+           setIsLoading(false);
+           setJobStatus('Search complete');
+           // Clear success message after 5 seconds
+           setTimeout(() => setJobStatus(null), 5000);
+        } else {
+           pollJobStatus(jobId, params.hashtag, params.platform);
+        }
       } else {
         console.error('No jobId returned from API');
         setIsLoading(false);
         setJobStatus('Error: No Job ID');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Search failed:', error);
       setIsLoading(false);
-      setJobStatus('Failed to start job');
+      if (error.name === 'AbortError') {
+        setJobStatus('Search timed out. Please check server logs.');
+      } else {
+        setJobStatus(`Failed: ${error.message || 'Unknown error'}`);
+      }
     }
   };
 
@@ -156,10 +182,26 @@ export default function DashboardClient() {
           <p className="text-slate-500 mt-1">Scrape and analyze social media performance via hashtags.</p>
         </div>
         <div className="flex items-center gap-4">
-          {isLoading && (
-            <div className="flex items-center gap-3 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-100 animate-pulse">
-              <Clock className="h-4 w-4 animate-spin" />
-              <span className="text-sm font-medium">{jobStatus}</span>
+          {(isLoading || jobStatus) && (
+            <div className={`flex items-center gap-3 px-4 py-2 rounded-full border shadow-sm transition-all ${
+              jobStatus?.includes('Failed') || jobStatus?.includes('Error') || jobStatus?.includes('timed out')
+                ? 'bg-red-50 text-red-700 border-red-100' 
+                : jobStatus === 'COMPLETED' || jobStatus === 'Search complete'
+                ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                : 'bg-indigo-50 text-indigo-700 border-indigo-100 animate-pulse'
+            }`}>
+              {isLoading && <Clock className="h-4 w-4 animate-spin" />}
+              <span className="text-sm font-medium">{jobStatus || 'Processing...'}</span>
+              
+              {!isLoading && jobStatus && (
+                <button 
+                  onClick={() => setJobStatus(null)}
+                  className="ml-2 hover:bg-slate-200/50 rounded-full p-0.5"
+                >
+                  <Users className="h-3 w-3 rotate-45" /> {/* Use rotate-45 for an X shape if no X icon is handy, or just text */}
+                  <span className="sr-only">Dismiss</span>
+                </button>
+              )}
             </div>
           )}
           <Link 
@@ -198,8 +240,9 @@ export default function DashboardClient() {
         <div className="space-y-1">
           <p className="font-semibold text-blue-900">หมายเหตุ: ข้อจำกัดการดึงข้อมูลจากแพลตฟอร์ม (API Limitations)</p>
           <ul className="list-disc pl-5 space-y-1 text-blue-700">
-            <li><strong>TikTok:</strong> สามารถดึงข้อมูลยอด Views, Likes, Comments, Shares, และ Saves ได้อย่างครบถ้วน</li>
-            <li><strong>Facebook:</strong> สามารถดึงยอด Likes, Comments, และ Shares ได้ <u>แต่ไม่สามารถดึงยอด Saves ได้</u> (แสดงเป็น 0) เนื่องจากข้อจำกัดด้าน Privacy ของแพลตฟอร์ม และยอด Views จะสามารถดึงได้เฉพาะบางโพสต์ที่แสดงเป็นวิดีโอสาธารณะเท่านั้น</li>
+            <li><strong>TikTok:</strong> สามารถดึงข้อมูลยอด Views, Likes, Comments, Shares, และ Saves ได้อย่างครบถ้วน (Real-time Scraping)</li>
+            <li><strong>Facebook:</strong> สามารถดึงยอด Likes, Comments, และ Shares ได้ <u>แต่ไม่สามารถดึงยอด Saves ได้</u> (แสดงเป็น 0) และยอด Views จะจำกัดเฉพาะวิดีโอสาธารณะ</li>
+            <li><strong>หมายเหตุ:</strong> หากไม่พบข้อมูล ระบบจะแสดงข้อมูลตัวอย่าง (Demo Data) ให้โดยอัตโนมัติ</li>
           </ul>
         </div>
       </div>

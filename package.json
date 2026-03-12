@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.5.0",
     "@prisma/client": "^5.10.0",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
@@ -20,6 +21,7 @@
     "lodash": "^4.17.23",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
+    "pg": "^8.20.0",
     "playwright-stealth": "^0.0.1",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "19.2.3",
@@ -28,11 +30,11 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.17.1",
     "@tailwindcss/postcss": "^4",
     "@types/json2csv": "^5.0.7",
     "@types/lodash": "^4.17.24",
     "@types/node": "^20.19.37",
+    "@types/pg": "^8.18.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9",

@@ -1,3 +1,0 @@
-export const production = {"DATABASE_URL":"file:./dev.db","DIRECT_URL":"postgresql://postgres:l8XTg3kXj2sZFmKu@db.kfroqqsxflgstskpzkel.supabase.co:5432/postgres","RAPIDAPI_KEY":"e16d8b1488mshdcf45dbb89c8e0cp1cdf49jsn916a1d0277e7"};
-export const development = {"DATABASE_URL":"file:./dev.db","DIRECT_URL":"postgresql://postgres:l8XTg3kXj2sZFmKu@db.kfroqqsxflgstskpzkel.supabase.co:5432/postgres","RAPIDAPI_KEY":"e16d8b1488mshdcf45dbb89c8e0cp1cdf49jsn916a1d0277e7"};
-export const test = {"DATABASE_URL":"file:./dev.db","DIRECT_URL":"postgresql://postgres:l8XTg3kXj2sZFmKu@db.kfroqqsxflgstskpzkel.supabase.co:5432/postgres","RAPIDAPI_KEY":"e16d8b1488mshdcf45dbb89c8e0cp1cdf49jsn916a1d0277e7"};

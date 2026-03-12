@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 
@@ -13,8 +14,12 @@ export async function GET() {
     });
 
     return NextResponse.json({ jobs });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Failed to fetch history:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json({ 
+      error: 'Failed to fetch history', 
+      message: error.message,
+      stack: error.stack 
+    }, { status: 500 });
   }
 }

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/db/prisma';
 
@@ -9,9 +10,22 @@ export async function GET(req: Request) {
   try {
     const where: any = {};
     if (platform && platform !== 'ALL') where.platform = platform;
-    if (hashtag) where.searchJob = { hashtag: { contains: hashtag } };
+    
+    // Normalize hashtag search
+    if (hashtag) {
+      const cleanHashtag = hashtag.startsWith('#') ? hashtag : `#${hashtag}`;
+      console.log(`[REPORTS] Searching posts for hashtag: "${hashtag}" (normalized: "${cleanHashtag}") on platform: ${platform || 'ALL'}`);
+      
+      where.searchJob = {
+        hashtag: {
+          contains: cleanHashtag.replace('#', ''), // Match either with or without #
+          mode: 'insensitive' // case-insensitive matching
+        }
+      };
+    }
 
     // 1. Total Summary
+    console.log(`[REPORTS] Querying summary with where:`, JSON.stringify(where));
     const summary = await prisma.post.aggregate({
       where,
       _sum: {
@@ -23,6 +37,7 @@ export async function GET(req: Request) {
       },
       _count: true,
     });
+    console.log(`[REPORTS] Summary found: ${summary._count} posts`);
 
     // 2. Top Accounts
     const topAccounts = await prisma.account.findMany({

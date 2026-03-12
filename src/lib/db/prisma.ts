@@ -1,7 +1,15 @@
 import { PrismaClient } from '@prisma/client'
 
 const prismaClientSingleton = () => {
-  return new PrismaClient()
+  console.log('Initializing PrismaClient...');
+  try {
+    return new PrismaClient({
+      log: ['query', 'info', 'warn', 'error'],
+    })
+  } catch (err) {
+    console.error('Failed to initialize PrismaClient:', err);
+    throw err;
+  }
 }
 
 declare global {
