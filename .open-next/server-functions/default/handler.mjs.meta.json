@@ -3606,6 +3606,11 @@
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
+      "bytes": 6826,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js": {
       "bytes": 313,
       "imports": [],
@@ -3618,11 +3623,6 @@
     },
     ".open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js": {
       "bytes": 314,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
-      "bytes": 6826,
       "imports": [],
       "format": "cjs"
     },
@@ -3675,6 +3675,11 @@
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
         },
         {
+          "path": ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js"
+        },
+        {
           "path": ".open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js"
@@ -3688,11 +3693,6 @@
           "path": ".open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js",
           "kind": "require-call",
           "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/Users/romeoanimore/Desktop/Work/Hashtag Scraping/hashtag-scraper/.open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/api/jobs/[id]/route_client-reference-manifest.js",
@@ -8130,6 +8130,9 @@
         ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
           "bytesInOutput": 5722
         },
+        ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
+          "bytesInOutput": 6529
+        },
         ".open-next/server-functions/default/.next/server/app/api/scrape/route_client-reference-manifest.js": {
           "bytesInOutput": 461
         },
@@ -8138,9 +8141,6 @@
         },
         ".open-next/server-functions/default/.next/server/app/api/history/route_client-reference-manifest.js": {
           "bytesInOutput": 464
-        },
-        ".open-next/server-functions/default/.next/server/app/account/[id]/page_client-reference-manifest.js": {
-          "bytesInOutput": 6529
         },
         ".open-next/server-functions/default/.next/server/app/api/jobs/[id]/route_client-reference-manifest.js": {
           "bytesInOutput": 468
