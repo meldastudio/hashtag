@@ -28,6 +28,7 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.17.1",
     "@tailwindcss/postcss": "^4",
     "@types/json2csv": "^5.0.7",
     "@types/lodash": "^4.17.24",
@@ -38,6 +39,7 @@
     "eslint-config-next": "16.1.6",
     "prisma": "^5.10.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.72.0"
   }
 }
