@@ -44,9 +44,9 @@ export default function DashboardClient() {
     setActivePlatform(params.platform);
     
     try {
-      // Set a 30s timeout for the initial request
+      // Set a 60s timeout for the initial request to allow for platform delays
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000);
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
 
       const res = await fetch('/api/scrape', {
         method: 'POST',
@@ -86,7 +86,9 @@ export default function DashboardClient() {
       console.error('Search failed:', error);
       setIsLoading(false);
       if (error.name === 'AbortError') {
-        setJobStatus('Search timed out. Please check server logs.');
+        setJobStatus('Still searching... This is taking longer than expected. Please check back in a moment or see Search History.');
+        // Try to fetch reports anyway in case it finished and we just missed the response
+        setTimeout(() => fetchReports(params.hashtag, params.platform), 5000);
       } else {
         setJobStatus(`Failed: ${error.message || 'Unknown error'}`);
       }
