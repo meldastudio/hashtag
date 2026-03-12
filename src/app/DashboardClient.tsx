@@ -260,6 +260,13 @@ export default function DashboardClient() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Footer */}
+      <footer className="text-center py-6 border-t border-slate-200 mt-4">
+        <p className="text-sm text-slate-400">
+          powered by <span className="font-semibold text-slate-500">Melda Studio Co., Ltd.</span>
+        </p>
+      </footer>
     </div>
   );
 }

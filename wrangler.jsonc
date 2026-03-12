@@ -6,5 +6,10 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "DATABASE_URL": "postgresql://postgres:l8XTg3kXj2sZFmKu@db.kfroqqsxflgstskpzkel.supabase.co:5432/postgres",
+    "DIRECT_URL": "postgresql://postgres:l8XTg3kXj2sZFmKu@db.kfroqqsxflgstskpzkel.supabase.co:5432/postgres",
+    "RAPIDAPI_KEY": "e16d8b1488mshdcf45dbb89c8e0cp1cdf49jsn916a1d0277e7"
   }
 }
