@@ -2,5 +2,5 @@
   "name": "hashtag-scraper",
   "compatibility_flags": ["nodejs_compat"],
   "compatibility_date": "2025-12-01",
-  "pages_build_output_dir": ".worker-next"
+  "pages_build_output_dir": ".open-next/assets"
 }
